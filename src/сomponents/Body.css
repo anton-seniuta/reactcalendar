@@ -1,0 +1,30 @@
+.body{
+    margin: 0 5%;
+    width: 90%;
+    height: 90%;
+}
+.menu{
+    display: flex;
+    flex-direction: row;
+    height: 60px;
+}
+.menu-button{
+    margin: auto 15px auto 0;
+    height: 25px;
+}
+.previous-button{
+    width: 25px;
+}
+.next-button{
+    width: 25px;
+}
+.today-button{
+    width: auto;
+}
+.month-text{
+    margin: auto 15px auto 0;
+}
+.calendar{
+    display: flex;
+    
+}
