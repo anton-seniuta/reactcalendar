@@ -7,9 +7,9 @@ import "./Day.css";
 //   text: ''
 // }
 
-function Day() {
+function Day(props) {
   return <div className="day">
-      {/* {info.date.setDate()} */}
+      {props.day}
       
   </div>;
 }
