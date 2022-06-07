@@ -1,39 +1,37 @@
 import "./Calendar.css";
 import Day from "./Day";
 
-function Calendar() {
-  let year = 2022;
-  let month = 3;
-  let firstCalendarDate = createFirstCalendarDate(year, month);
+
+function Calendar(props) {
+  let month = props.firstDay.getMonth(); 
   let calendarDays = [];
 
   for (;;) {
     for (let i = 0; i < 7; i++) {
-      calendarDays.push(firstCalendarDate.getDate());
-      firstCalendarDate.setDate(firstCalendarDate.getDate() + 1);
+      calendarDays.push(props.firstDay.getDate() + "");
+      props.firstDay.setDate(props.firstDay.getDate() + 1);
     }
-    if (firstCalendarDate.getMonth() !== month) break;
+    if (props.firstDay.getMonth() !== month + 1) break;
   }
 
-  console.log(calendarDays);
+  calendarDays[0] = 'Понедельник, ' + calendarDays[0];
+  calendarDays[1] = 'Вторник, ' + calendarDays[1];
+  calendarDays[2] = 'Среда, ' + calendarDays[2];
+  calendarDays[3] = 'Четверг,  ' + calendarDays[3];
+  calendarDays[4] = 'Пятница, ' + calendarDays[4];
+  calendarDays[5] = 'Суббота, ' + calendarDays[5];
+  calendarDays[6] = 'Воскресенье, ' + calendarDays[6];
+
+  console.log(calendarDays)
+
   return (
     <div className="calendar">
-      {calendarDays.map((day) => (
-        <Day day={day}>{}</Day>              //нету key 
+      {calendarDays.map((text, index) => (
+          <Day key={index} day={text}>{}</Day>
       ))}
     </div>
   );
 }
-
-function createFirstCalendarDate(year, month) {
-  let result = new Date(year, month);
-  result.setDate(result.getDate() - result.getDate() + 1);
-  if (result.getDay === 0) {
-    result.setDate(result.getDate() - 7 + 1);
-  } else {
-    result.setDate(result.getDate() - result.getDay() + 1);
-  }
-  return result;
-}
-
+  
 export default Calendar;
+ 

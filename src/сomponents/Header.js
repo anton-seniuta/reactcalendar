@@ -1,6 +1,6 @@
 import "./Header.css";
 
-// import glass from "./glass.png";
+import lens from "./lens.png";
 
 function Header() {
   // const button = "button";
@@ -11,8 +11,11 @@ function Header() {
         <button className={"add button"}>Добавить</button>
         <button className={"reload button"}>Обновить</button>
         <div className="search">
-          {/* <img className="menu-img" src={glass} alt="img"></img>  IMAGE CAUSE ERRORS */}
-          <input className="menu-input"></input>
+          <img className="menu-img" src={lens} alt="img"></img>
+          <input
+            className="menu-input"
+            placeholder="Событие, дата или участник"
+          ></input>
         </div>
       </div>
     </div>
