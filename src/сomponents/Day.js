@@ -1,7 +1,8 @@
 import "./Day.css";
 
-function Day(props) {
-  return <div className="day">{props.day}</div>;
+function Day({day}) {
+  
+  return <div className="day">{day}</div>;
 }
 
 export default Day;

@@ -3,8 +3,7 @@ import "./Header.css";
 import lens from "./lens.png";
 
 function Header() {
-  // const button = "button";
-
+ 
   return (
     <div className="header">
       <div className="wrapper">
