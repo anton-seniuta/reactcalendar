@@ -1,27 +1,23 @@
-// import { useState } from "react";
+import { useState } from "react";
 import "./Body.css";
 import Calendar from "./Calendar";
 
-function Body() { 
-  let todaysDate = new Date();
-  // let currentDate = Date.now(todaysDate.getFullYear(), todaysDate.getMonth(), 1);
-  // let currentDateForCount = new Date(currentDate);
+function Body() {
+  const [todaysDate, setTodaysDate] = useState(new Date());
   let firstCalendarDate = createFirstCalendarDate(todaysDate.getFullYear(), todaysDate.getMonth());
-
   let calendarDays = calendarDaysCalculating(firstCalendarDate);
-  // const [calendarDays, setCalendarDays] = useState(calendarDaysCalculating(firstCalendarDate));
 
   return (
     <div className="body">
       <div className="menu">
-        <button className="previous-button menu-button" onClick={() => previousButtonClick()}>
+        <button className="previous-button menu-button" onClick={() => previousButtonClick(todaysDate, setTodaysDate)}>
           &lt;
         </button>
         <h2 className="month-text">{textOutput(todaysDate.getFullYear(), todaysDate.getMonth())}</h2>
-        <button className="next-button menu-button" onClick={() => nextButtonClick()}>
+        <button className="next-button menu-button" onClick={() => nextButtonClick(todaysDate, setTodaysDate)}>
           &gt;
         </button>
-        <button className="today-button menu-button" onClick={() => todaysButtonClick()}>
+        <button className="today-button menu-button" onClick={() => todaysButtonClick(setTodaysDate)}>
           Сегодня
         </button>
       </div>
@@ -34,21 +30,18 @@ export default Body;
 
 function calendarDaysCalculating(firstDayDate) {
   let date = new Date(firstDayDate);
-  let month = date.getMonth();
+  let nextMonth = date.getMonth() + 1;
   let calendarDays = [];
 
-  // let calendarDays= {
-  //    id:
-  // };
-  console.log(month);
-  console.log(date.getMonth());
+  if (date.getDate() !== 1) nextMonth += 1;
+  if (nextMonth >= 12) nextMonth -= 12;
 
   for (;;) {
     for (let i = 0; i < 7; i++) {
       calendarDays.push(date.getDate() + "");
       date.setDate(date.getDate() + 1);
     }
-    if (date.getMonth() === month + 1) {
+    if (date.getMonth() === nextMonth) {
       calendarDays[0] = "Понедельник, " + calendarDays[0];
       calendarDays[1] = "Вторник, " + calendarDays[1];
       calendarDays[2] = "Среда, " + calendarDays[2];
@@ -119,8 +112,14 @@ function textOutput(year, month) {
   return output + " " + year;
 }
 
-function previousButtonClick() {}
+function previousButtonClick(today, setTodaysDate) {
+  setTodaysDate(new Date(today.getFullYear(), today.getMonth() - 1));
+}
 
-function nextButtonClick() {}
+function nextButtonClick(today, setTodaysDate) {
+  setTodaysDate(new Date(today.getFullYear(), today.getMonth() + 1));
+}
 
-function todaysButtonClick() {}
+function todaysButtonClick(setTodaysDate) {
+  setTodaysDate(new Date());
+}

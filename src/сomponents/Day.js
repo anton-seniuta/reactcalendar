@@ -1,7 +1,6 @@
 import "./Day.css";
 
-function Day({day}) {
-  
+function Day({ day }) {
   return <div className="day">{day}</div>;
 }
 
