@@ -1,0 +1,11 @@
+.day {
+  width: calc(14.4% - 25px);
+  height: 180px;
+  border: solid 1px #eeeeee;
+  padding: 10px;
+  color: #9a9a9a;
+}
+
+.today {
+  color: #eeeeee;
+}
