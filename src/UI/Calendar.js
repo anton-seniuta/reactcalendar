@@ -1,5 +1,6 @@
 import React from "react";
-import "./Calendar.css";
+import "../CSS/Calendar.css";
+
 import Day from "./Day";
 
 function Calendar({ calendarDays }) {

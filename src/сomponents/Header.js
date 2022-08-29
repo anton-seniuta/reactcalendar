@@ -1,4 +1,5 @@
-import "./Header.css";
+import "../CSS/Header.css";
+
 
 import lens from "./lens.png";
 

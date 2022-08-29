@@ -1,6 +1,7 @@
 import { useState } from "react";
-import "./Body.css";
-import Calendar from "./Calendar";
+import "../CSS/Body.css";
+
+import Calendar from "../UI/Calendar";
 
 function Body() {
   const [todaysDate, setTodaysDate] = useState(new Date());
