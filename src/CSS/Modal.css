@@ -1,0 +1,47 @@
+.hidden {
+  visibility: hidden;
+}
+
+.visible {
+  width: 250%;
+  height: 200%;
+  position: relative;
+  visibility: visible;
+  background-color: white;
+  left: calc(100% + 10px + 10px);
+  padding: 20px;
+  box-shadow: 0px 0px 5px 1px #7a7a7a;
+
+
+  display: flexbox;
+  
+
+}
+
+.container {
+  /* background: firebrick; */
+}
+
+.element{
+    display: block;
+    /* margin: 0 20px; */
+    width: 100%;
+    height: auto;
+}
+
+.event{
+}
+
+.date{
+    margin: 5px 0;
+}
+.names{
+}
+
+.button-container{
+}
+
+.description{
+    margin-top: 40px;
+    margin-bottom: 20px;
+}

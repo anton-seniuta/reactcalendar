@@ -5,13 +5,14 @@ import Calendar from "../UI/Calendar";
 
 function Body() {
   const [todaysDate, setTodaysDate] = useState(new Date());
+  const [visibilityTrigger, setVisibilityTrigger] = useState(false);
   let firstCalendarDate = createFirstCalendarDate(todaysDate.getFullYear(), todaysDate.getMonth());
   let calendarDays = calendarDaysCalculating(firstCalendarDate);
 
   return (
     <div className="body">
-      <div className="menu">
-        <button className="previous-button menu-button" onClick={() => previousButtonClick(todaysDate, setTodaysDate)}>
+      <div className="menu">  
+        <button className="previous-button menu-button" onClick={() => previousButtonClick(todaysDate, setTodaysDate, setVisibilityTrigger)}>
           &lt;
         </button>
         <h2 className="month-text">{textOutput(todaysDate.getFullYear(), todaysDate.getMonth())}</h2>
@@ -19,10 +20,10 @@ function Body() {
           &gt;
         </button>
         <button className="today-button menu-button" onClick={() => todaysButtonClick(setTodaysDate)}>
-          Сегодня
+          Сегодня 
         </button>
       </div>
-      <Calendar calendarDays={calendarDays}></Calendar>
+      <Calendar calendarDays={calendarDays} trigger={visibilityTrigger}></Calendar>
     </div>
   );
 }
@@ -113,8 +114,10 @@ function textOutput(year, month) {
   return output + " " + year;
 }
 
-function previousButtonClick(today, setTodaysDate) {
+function previousButtonClick(today, setTodaysDate, setVisibilityTrigger) {
   setTodaysDate(new Date(today.getFullYear(), today.getMonth() - 1));
+  setVisibilityTrigger(true);
+  setVisibilityTrigger(false);
 }
 
 function nextButtonClick(today, setTodaysDate) {

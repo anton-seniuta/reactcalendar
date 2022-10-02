@@ -1,9 +1,8 @@
-import React from "react";
 import "../CSS/Calendar.css";
 
-import Day from "./Day";
+import Day from "../сomponents/Day";
 
-function Calendar({ calendarDays }) {
+function Calendar({ calendarDays, visibility }) {
   return (
     <div className="calendar">
       {calendarDays.map((text, index) => (
