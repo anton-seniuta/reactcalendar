@@ -6,7 +6,7 @@ function Calendar({ calendarDays, visibility }) {
   return (
     <div className="calendar">
       {calendarDays.map((text, index) => (
-        <Day key={index} day={text} />
+        <Day key={index} day={text} id={"id"+index}/>
       ))}
     </div>
   );

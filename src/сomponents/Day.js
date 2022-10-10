@@ -2,16 +2,15 @@ import "../CSS/Day.css";
 import Modal from "../UI/Modal";
 import {useState} from "react";
 
-function Day({ day }) {
+function Day({ day, id }) {
 
   const [visibility, setVisibitily] = useState("hidden");
 
   
   return (
-    <div className="day" onClick={()=> showPopUp(visibility, setVisibitily)}>
-      {day} 
-      {/* <Modal onClick={()=>onClickForChild()} visibility = {visibility}></Modal> */}
-      <Modal visibility = {visibility} submitFunction = {submitFunction}></Modal>
+    <div className="day" id={id} onClick={()=> showPopUp(visibility, setVisibitily)}>
+      {day}
+      <Modal visibility = {visibility} id={id}></Modal>
     </div>
   ); 
 }
@@ -22,18 +21,3 @@ function showPopUp(visibility, setVisibitily) {
   if(visibility === "hidden") setVisibitily("visible");
   else setVisibitily("hidden");
 }
-
-function submitFunction(event, date, names, description){
-  let eventValue = document.getElementsByClassName("event").value;
-  console.log(eventValue);
-  localStorage.setItem('event', event);
-  localStorage.setItem('date', date);
-  localStorage.setItem('names', names);
-  localStorage.setItem('description', description);
-
-
-
-}
-
-// function onClickForChild(){
-// }
